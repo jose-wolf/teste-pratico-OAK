@@ -9,11 +9,13 @@ public class Produto {
 
     public Produto(){}
 
-    public Produto(String nome, double valor, String descricao) {
+    public Produto(String nome, double valor, String descricao){
         this.nome = nome;
         this.valor = valor;
         this.descricao = descricao;
     }
+
+
 
     public String getNome() {
         return nome;
