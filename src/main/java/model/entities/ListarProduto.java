@@ -1,6 +1,7 @@
 package model.entities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ListarProduto {
@@ -19,5 +20,9 @@ public class ListarProduto {
         for (Produto produto : produtoList){
             System.out.println("Produto: " + produto.getNome() + " - Valor: "  + produto.formatarValor());
         }
+    }
+
+    public void ordenarValor(){
+        Collections.sort(produtoList);
     }
 }
