@@ -41,8 +41,13 @@ public class Menu {
 
         System.out.print("Descrição do produto: ");
         String descricao = sc.nextLine();
-        Produto produto = new Produto(nome,valor,descricao);
+
+        System.out.println("Produto disponível? (sim/não): ");
+        boolean disponivel = sc.nextLine().equalsIgnoreCase("sim");
+
+        Produto produto = new Produto(nome,valor,descricao,disponivel);
         listarProduto.adicionarProduto(produto);
+        produto.produtoDisponivel();
         listarProduto.ordenarValor();
         listarProduto.listarProdutos();
     }
@@ -55,25 +60,32 @@ public class Menu {
     }
 
     public static void executar(){
-        while(true){
-            exibirMenu();
-            System.out.println("Escolha uma opção: ");
-            int opcao = Integer.parseInt(sc.nextLine());
+        try {
 
-            switch (opcao){
-                case 1:
-                    cadastrarProduto();
-                    break;
-                case 2:
-                    listarProdutos();
-                    break;
-                case 3:
-                    System.out.println("Saindo do sistema");
-                    sc.close();
-                    return;
-                default:
-                    System.out.println("Opção inválida tente novamente!");
+
+            while (true) {
+                exibirMenu();
+                System.out.println("Escolha uma opção: ");
+                int opcao = Integer.parseInt(sc.nextLine());
+
+                switch (opcao) {
+                    case 1:
+                        cadastrarProduto();
+                        break;
+                    case 2:
+                        listarProdutos();
+
+                        break;
+                    case 3:
+                        System.out.println("Saindo do sistema");
+                        sc.close();
+                        return;
+                    default:
+                        System.out.println("Opção inválida tente novamente!");
+                }
             }
+        }catch (NumberFormatException e){
+            System.err.println("Insiro uma das opções!" + e.getMessage());
         }
     }
 
