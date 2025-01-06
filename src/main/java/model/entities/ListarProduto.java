@@ -18,7 +18,8 @@ public class ListarProduto {
 
     public void listarProdutos(){
         for (Produto produto : produtoList){
-            System.out.println("Produto: " + produto.getNome() + " - Valor: "  + produto.formatarValor());
+            System.out.println("Produto: " + produto.getNome() + " - Valor: "  + produto.formatarValor() +
+                    " - " + produto.produtoDisponivel());
         }
     }
 
