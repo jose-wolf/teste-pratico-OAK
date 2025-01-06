@@ -9,13 +9,15 @@ public class Produto implements Comparable<Produto>{
     private String nome;
     private double valor;
     private String descricao;
+    private boolean disponivel;
 
     public Produto(){}
 
-    public Produto(String nome, double valor, String descricao){
+    public Produto(String nome, double valor, String descricao, boolean disponivel){
         this.nome = nome;
         this.valor = valor;
         this.descricao = descricao;
+        this.disponivel = disponivel;
     }
 
     public String getNome() {
@@ -30,8 +32,12 @@ public class Produto implements Comparable<Produto>{
         return descricao;
     }
 
-    public String  produtoDisponivel(String resultado){
-        return resultado.equalsIgnoreCase("sim") ? "Produto disponível: sim" : "Produto disponível: não";
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public String  produtoDisponivel(){
+        return disponivel ? "Produto disponível: sim" : "Produto disponível: não";
     }
 
     public String formatarValor(){
